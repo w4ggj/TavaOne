@@ -1,0 +1,13 @@
+anthropic>=0.40.0
+opencv-python>=4.9.0
+SpeechRecognition>=3.10.0
+pyttsx3>=2.90
+sounddevice>=0.4.6
+numpy>=1.26.0
+scipy>=1.11.0
+
+# Optional: for local (offline) speech recognition instead of Google
+# openai-whisper>=20231117
+
+# Optional: for higher quality voices
+# elevenlabs

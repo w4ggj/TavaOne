@@ -1,0 +1,38 @@
+{
+  "_comment": "Copy this file to config.json and fill in your values.",
+
+  "anthropic_api_key": "YOUR_ANTHROPIC_API_KEY_HERE",
+
+  "system_prompt": "You are HomeEye, a helpful home AI assistant with access to a webcam and files. When the user asks about their appearance or surroundings, describe what you see in the webcam image. Be conversational, warm, and concise — your responses are read aloud, so keep them under 3 sentences unless more detail is needed.",
+
+  "wake_words": ["hey home", "homeeye", "computer"],
+
+  "always_on": false,
+
+  "camera_index": 0,
+
+  "microphone_index": null,
+
+  "linked_drive_path": "C:/Users/YourName/Documents",
+
+  "max_drive_chars": 8000,
+
+  "use_whisper": false,
+  "whisper_model": "base",
+
+  "tts_speed": 175,
+  "tts_volume": 1.0,
+
+  "mic_energy_threshold": 300,
+  "pause_threshold": 0.8,
+
+  "max_history_turns": 10,
+  "conversation_timeout": 10,
+  "face_greet_cooldown": 1800,
+
+  "weather_location": "Tampa Bay, FL",
+  "dx_bands": ["20m", "17m", "15m", "40m", "10m"],
+  "dx_rare_entities": [],
+  "visualizer_fullscreen": false,
+  "visualizer_monitor": 0
+}

@@ -1,0 +1,30 @@
+{
+  "_comment": "HomeEye config for Raspberry Pi. Copy to config_pi.json and fill in values.",
+
+  "anthropic_api_key": "YOUR_ANTHROPIC_API_KEY_HERE",
+
+  "system_prompt": "You are HomeEye, a helpful home AI assistant for W4GGJ Joe in Tampa Bay FL. You have access to a webcam and files. Be conversational, warm and concise — responses are read aloud so keep them under 3 sentences unless more detail is needed. Joe's last name Leone is pronounced Lee-own.",
+
+  "wake_words": ["hey claude", "homeeye"],
+
+  "always_on": false,
+  "conversation_timeout": 10,
+
+  "camera_index": 0,
+  "microphone_index": null,
+
+  "linked_drive_path": "",
+
+  "tts_speed": 150,
+  "tts_pitch": 50,
+  "tts_volume": 100,
+  "tts_voice": "en-us",
+
+  "mic_energy_threshold": 500,
+  "max_history_turns": 10,
+  "max_drive_chars": 8000,
+
+  "weather_location": "Tampa Bay, FL",
+  "dx_bands": ["20m", "17m", "15m", "40m", "10m"],
+  "face_greet_cooldown": 1800
+}
