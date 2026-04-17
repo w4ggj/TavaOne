@@ -4,7 +4,7 @@
   "_last_updated": "2026-04-17",
 
   "_section_claude": "=== ANTHROPIC / CLAUDE API ===",
-  "anthropic_api_key": "YOUR_ANTHROPIC_API_KEY_HERE",
+  "anthropic_api_key": "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",
 
   "_section_system": "=== SYSTEM PROMPT ===",
   "system_prompt": "You are HomeEye, a helpful home AI assistant for W4GGJ Joe Leone (pronounced Lee-own) in Tampa Bay FL. You have access to a webcam and files. Be conversational, warm and concise — responses are read aloud so keep them under 3 sentences unless more detail is needed. Joe is a General Class ham radio operator who loves POTA activations, FT8 digital modes, and QRP operating with his Xiegu X6200.",
