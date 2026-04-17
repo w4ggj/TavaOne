@@ -1,0 +1,82 @@
+{
+  "_info": "HomeEye AI Assistant — W4GGJ / Joe Leone — Tampa Bay FL",
+  "_version": "2.0.0",
+  "_last_updated": "2026-04-17",
+
+  "_section_claude": "=== ANTHROPIC / CLAUDE API ===",
+  "anthropic_api_key": "YOUR_ANTHROPIC_API_KEY_HERE",
+
+  "_section_system": "=== SYSTEM PROMPT ===",
+  "system_prompt": "You are HomeEye, a helpful home AI assistant for W4GGJ Joe Leone (pronounced Lee-own) in Tampa Bay FL. You have access to a webcam and files. Be conversational, warm and concise — responses are read aloud so keep them under 3 sentences unless more detail is needed. Joe is a General Class ham radio operator who loves POTA activations, FT8 digital modes, and QRP operating with his Xiegu X6200.",
+
+  "_section_wake": "=== WAKE WORD & CONVERSATION ===",
+  "wake_words": ["hey claude", "homeeye", "computer"],
+  "always_on": false,
+  "conversation_timeout": 10,
+
+  "_section_audio": "=== AUDIO DEVICES ===",
+  "microphone_index": 1,
+  "tts_speed": 175,
+  "tts_volume": 1.0,
+  "mic_energy_threshold": 800,
+  "pause_threshold": 0.8,
+
+  "_section_elevenlabs": "=== ELEVENLABS VOICE ===",
+  "use_elevenlabs": true,
+  "elevenlabs_api_key": "sk_a8ee05d7f282302f951d9fad7c18249a1932bb69f7c24177",
+  "elevenlabs_voice_id": "ehmUF8OXIbBNBuGwE4JX",
+  "tts_speed_el": 1.0,
+
+  "_section_camera": "=== CAMERA ===",
+  "camera_index": 0,
+
+  "_section_drive": "=== LINKED DRIVE ===",
+  "linked_drive_path": "G:/My Drive/Household/Ham Radio",
+  "max_drive_chars": 8000,
+
+  "_section_visualizer": "=== WOPR VISUALIZER ===",
+  "visualizer_fullscreen": true,
+  "visualizer_monitor": 3,
+
+  "_section_smartthings": "=== SMARTTHINGS ===",
+  "smartthings_token": "71dde339-abb6-4621-920e-85a5ebca0f2b",
+
+  "_section_weather": "=== WEATHER ===",
+  "weather_location": "Tampa Bay, FL",
+
+  "_section_traffic": "=== GOOGLE MAPS TRAFFIC ===",
+  "google_maps_api_key": "AIzaSyAyc-EYqFnfPAoKz3dW7DlNGECLGOAwonQ",
+
+  "_section_pushover": "=== PUSHOVER NOTIFICATIONS ===",
+  "pushover_token": "akbhhsjk3g691dhce9fi778db81561",
+  "pushover_user": "u2awjv54deq5hew939pir3tz3yjgeu",
+
+  "_section_tailscale": "=== TAILSCALE WEB SERVER ===",
+  "enable_web_server": true,
+  "web_server_port": 8765,
+
+  "_section_github": "=== GITHUB AUTO-UPDATE ===",
+  "github_token": "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",
+  "github_user": "w4ggj",
+  "github_repo": "TavaOne",
+
+  "_section_ham": "=== HAM RADIO ===",
+  "dx_bands": ["20m", "17m", "15m", "40m", "10m"],
+  "dx_rare_entities": [],
+
+  "_section_face": "=== FACE RECOGNITION ===",
+  "face_greet_cooldown": 1800,
+
+  "_section_claude_code": "=== CLAUDE CODE ===",
+  "claude_code_dir": "C:/HomeEye",
+
+  "_section_misc": "=== MISC ===",
+  "max_history_turns": 10,
+
+  "_commute": "=== COMMUTE ROUTES (in homeeye_functions.py) ===",
+  "_route1_from": "4101 41st Ave N, St Petersburg FL 33714",
+  "_route1_to": "5040 140th Ave N, Clearwater FL 33762",
+  "_route2_from": "5040 140th Ave N, Clearwater FL 33762",
+  "_route2_to": "14625 County Road 672, Wimauma FL 33598",
+  "_route2_via": "I-275 S, Selmon Expressway, I-75 S, US-301 S"
+}
