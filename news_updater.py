@@ -2,12 +2,12 @@
 Ham Radio Daily News Updater - TavaOne.com
 ==========================================
 Scrapes amateur-radio RSS feeds, curates the top headlines with the Claude API,
-and writes latest_news.html.
+and writes latest_news.html (dark, Tava One-branded).
 
-Designed to run daily in GitHub Actions. The workflow commits the regenerated
-file and GitHub Pages serves it into the "Amateur Radio News" page on
-tavaone.com (embedded via iframe at
-https://w4ggj.github.io/TavaOne/latest_news.html).
+Runs daily in GitHub Actions. The workflow commits the regenerated file and
+GitHub Pages serves it into the "Amateur Radio News" page on tavaone.com
+(embedded at https://w4ggj.github.io/TavaOne/latest_news.html). The page posts
+its height to the parent so the iframe auto-sizes with no scrollbar.
 
 SECRETS COME FROM ENVIRONMENT VARIABLES ONLY - never hard-code them.
 Required env var:
@@ -159,7 +159,8 @@ Repeat the inner card div for each headline. Output ONLY the HTML, nothing else.
 
 # -- Write HTML ---------------------------------------------------------------
 def write_html(html_content: str) -> None:
-    full_html = f"""<!DOCTYPE html>
+    # Plain string (not an f-string) so the CSS/JS braces don't need escaping.
+    page = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -170,16 +171,32 @@ def write_html(html_content: str) -> None:
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    html, body {{ margin: 0; padding: 0; }}
-    body {{ padding: 28px 20px; background: #0f172a; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }}
-    a:hover {{ color: #34d399 !important; text-decoration: none !important; }}
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; }
+    body {
+      padding: 28px 20px;
+      background: #0f172a;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    a:hover { color: #34d399 !important; text-decoration: none !important; }
   </style>
 </head>
 <body>
-{html_content}
+__CONTENT__
+<script>
+  function tavaonePostHeight() {
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    if (window.parent) { window.parent.postMessage({ tavaoneNewsHeight: h }, "*"); }
+  }
+  window.addEventListener("load", tavaonePostHeight);
+  window.addEventListener("resize", tavaonePostHeight);
+  document.addEventListener("DOMContentLoaded", tavaonePostHeight);
+  setTimeout(tavaonePostHeight, 300);
+  setTimeout(tavaonePostHeight, 1200);
+</script>
 </body>
 </html>"""
-    OUTPUT_FILE.write_text(full_html, encoding="utf-8")
+    OUTPUT_FILE.write_text(page.replace("__CONTENT__", html_content), encoding="utf-8")
     print(f"Wrote {OUTPUT_FILE}")
 
 
