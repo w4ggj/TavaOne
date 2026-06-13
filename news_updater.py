@@ -125,19 +125,21 @@ Select the TOP {HEADLINE_COUNT} most interesting stories for amateur radio opera
 
 Output ONLY clean HTML using exactly this structure:
 
-<div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 10px;">
+<div style="font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 10px;">
 
-<p style="color: #888; font-size: 13px; border-bottom: 2px solid #e8a000; padding-bottom: 10px; margin-bottom: 25px;">Last updated: {updated_str} &mdash; Curated daily by W4GGJ for TavaOne.com</p>
+<div style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px;"><span style="color:#ffffff;">Tava</span><span style="color:#10b981;">One</span><span style="color:#475569;"> // </span><span style="color:#10b981;">News</span></div>
 
-<div style="border-left: 4px solid #e8a000; padding-left: 15px; margin-bottom: 25px;">
-<h3 style="margin: 0 0 4px 0; font-size: 17px;"><a href="ARTICLE_URL" target="_blank" style="color: #1a1a1a; text-decoration: none;">ARTICLE HEADLINE</a></h3>
-<p style="color: #aaa; font-size: 12px; margin: 0 0 7px 0;">Source: SOURCE NAME</p>
-<p style="color: #444; font-size: 14px; line-height: 1.5; margin: 0;">1-2 sentence summary in Joe's friendly ham radio voice. Sound like a fellow ham sharing news on the air, not a press release.</p>
+<p style="color: #94a3b8; font-size: 13px; border-bottom: 1px solid #334155; padding-bottom: 14px; margin: 0 0 26px 0;">Amateur radio headlines, curated daily by W4GGJ &mdash; last updated {updated_str}</p>
+
+<div style="background:#1e293b; border:1px solid #334155; border-left:4px solid #10b981; border-radius:8px; padding:16px 18px; margin-bottom:16px;">
+<h3 style="margin:0 0 6px 0; font-size:17px; font-weight:700; line-height:1.35;"><a href="ARTICLE_URL" target="_blank" style="color:#f8fafc; text-decoration:none;">ARTICLE HEADLINE</a></h3>
+<p style="color:#6ee7b7; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 8px 0;">SOURCE NAME</p>
+<p style="color:#cbd5e1; font-size:14px; line-height:1.6; margin:0;">1-2 sentence summary in Joe's friendly ham radio voice. Sound like a fellow ham sharing news on the air, not a press release.</p>
 </div>
 
 </div>
 
-Repeat the inner div for each headline. Output ONLY the HTML, nothing else."""
+Repeat the inner card div for each headline. Output ONLY the HTML, nothing else."""
 
     print("Curating with Claude...")
     resp = client.messages.create(
@@ -158,14 +160,19 @@ Repeat the inner div for each headline. Output ONLY the HTML, nothing else."""
 # -- Write HTML ---------------------------------------------------------------
 def write_html(html_content: str) -> None:
     full_html = f"""<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="3600">
-  <title>Amateur Radio Daily News - TavaOne.com W4GGJ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amateur Radio Daily News - Tava One / W4GGJ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {{ margin: 0; padding: 20px; background: #fff; font-family: Arial, sans-serif; }}
-    a:hover {{ color: #e8a000 !important; text-decoration: underline !important; }}
+    html, body {{ margin: 0; padding: 0; }}
+    body {{ padding: 28px 20px; background: #0f172a; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }}
+    a:hover {{ color: #34d399 !important; text-decoration: none !important; }}
   </style>
 </head>
 <body>
