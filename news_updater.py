@@ -199,7 +199,18 @@ __CONTENT__
     OUTPUT_FILE.write_text(page.replace("__CONTENT__", html_content), encoding="utf-8")
     print(f"Wrote {OUTPUT_FILE}")
 
-
+# -- Write Fragment (for client-side embed) -----------------------------------
+def write_fragment(html_content: str) -> None:
+    """Self-contained dark panel, no <html>/<head>/<body>, for a fetch() embed."""
+    open_div = (
+        '<div style="background:#0f172a; border-radius:12px; padding:28px 20px; '
+        "font-family:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\">"
+    )
+    fragment = open_div + "\n" + html_content + "\n</div>\n"
+    out = Path(__file__).parent / "news_fragment.html"
+    out.write_text(fragment, encoding="utf-8")
+    print(f"Wrote {out}")
+    
 # -- Main ---------------------------------------------------------------------
 def main():
     print("=" * 55)
@@ -214,6 +225,7 @@ def main():
 
     html = curate_with_claude(articles)
     write_html(html)
+    write_fragment(html)
 
     print("\n" + "=" * 55)
     print("  Update complete! 73 de W4GGJ")
